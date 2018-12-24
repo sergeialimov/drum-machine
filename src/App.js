@@ -18,6 +18,19 @@ class App extends Component {
             <button>X</button>
             <button>C</button>
           </div>
+          <div id="controls">
+            <div id="toggler">
+              <p>Power</p>
+            </div>
+            <div id="nameBox">
+              <p id="name">Chord 3</p>
+            </div>
+            <div id="volume">
+            </div>
+            <div id="bank">
+              <p>Bank</p>
+            </div>
+          </div>
         </div>
       </div>
     );

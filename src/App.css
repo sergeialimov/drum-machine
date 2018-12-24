@@ -41,3 +41,47 @@ button {
   font-size: 20px;
   font-weight: 600;
 }
+
+#controls {
+  align-self: center;
+  background-color: gray;
+  height: 65%;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+
+#toggler {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nameBox {
+  margin-left: auto;
+  margin-right: auto;
+  height: 40px;
+  width: 150px;
+  background-color: #D6D3CD;
+  display: flex;
+}
+
+#volume {
+  height: 40px;
+  width: 150px;
+  background-color: #D6D3CD;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#name {
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
