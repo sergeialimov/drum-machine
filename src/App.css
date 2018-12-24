@@ -2,14 +2,42 @@
   height: 100vh;
   width: 100vw;
   display: flex;
+  background-color: gray;
 }
 
 #surface {
-  background-color: gray;
+  background-color: #D6D3CD;
   width: 660px;
   height: 330px;
   margin-left: auto;
   margin-right: auto;
   align-self: center;
   border: 5px solid #F3B22F;
+  display: flex;
+}
+
+#keyboard {
+  width: 50%;
+  height: 85%;
+  /* background-color: gray; */
+  align-self: center;
+  /* margin-top: 2%; */
+  /* margin-bottom: 2%; */
+  margin-left: 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+button {
+  background-color: gray;
+  align-self: center;
+  border: none;
+  height: 90%;
+  width: 90px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 5px 2px 0 #3C3B3A;
+  font-size: 20px;
+  font-weight: 600;
 }
