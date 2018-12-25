@@ -6,17 +6,17 @@ class App extends Component {
   render() {
     return (
       <div id="app">
-        <div id="surface">
+        <div id="drum-machine">
           <div id="keyboard">
-            <button>Q</button>
-            <button>W</button>
-            <button>E</button>
-            <button>A</button>
-            <button>S</button>
-            <button>D</button>
-            <button>Z</button>
-            <button>X</button>
-            <button>C</button>
+            <button className="drum-pad">Q</button>
+            <button className="drum-pad">W</button>
+            <button className="drum-pad">E</button>
+            <button className="drum-pad">A</button>
+            <button className="drum-pad">S</button>
+            <button className="drum-pad">D</button>
+            <button className="drum-pad">Z</button>
+            <button className="drum-pad">X</button>
+            <button className="drum-pad">C</button>
           </div>
           <div id="rightPane">
             <div id="logo">
