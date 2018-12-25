@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './img/headphones.png';
 import './App.css';
 
 class App extends Component {
@@ -18,7 +18,10 @@ class App extends Component {
             <button>X</button>
             <button>C</button>
           </div>
-          <div id="controls">
+          <div id="rightPane">
+            <div id="logo">
+              <img id="logo" src={logo} alt="logo"/>
+            </div>
             <div id="toggler">
               <p>Power</p>
             </div>
