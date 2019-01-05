@@ -3,20 +3,31 @@ import logo from './img/headphones.png';
 import './App.css';
 
 class App extends Component {
+  // autotests for FreeCodeCamp
+  componentDidMount () {
+    const script = document.createElement("script");
+    script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }
+
   render() {
     return (
       <div id="app">
         <div id="drum-machine">
-          <div id="keyboard">
-            <button className="drum-pad">Q</button>
-            <button className="drum-pad">W</button>
-            <button className="drum-pad">E</button>
-            <button className="drum-pad">A</button>
-            <button className="drum-pad">S</button>
-            <button className="drum-pad">D</button>
-            <button className="drum-pad">Z</button>
-            <button className="drum-pad">X</button>
-            <button className="drum-pad">C</button>
+          <div id="display">
+          {/*<audio>
+            <source src="./sounds/piano/01.mp3" type="audio/mpeg"/>
+          </audio>*/}
+            <button className="drum-pad" id="1">Q</button>
+            <button className="drum-pad" id="2">W</button>
+            <button className="drum-pad" id="3">E</button>
+            <button className="drum-pad" id="4">A</button>
+            <button className="drum-pad" id="5">S</button>
+            <button className="drum-pad" id="6">D</button>
+            <button className="drum-pad" id="7">Z</button>
+            <button className="drum-pad" id="8">X</button>
+            <button className="drum-pad" id="9">C</button>
           </div>
           <div id="rightPane">
             <div id="logo">
