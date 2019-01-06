@@ -28,14 +28,7 @@ class App extends Component {
         <div id="drum-machine">
           <div id="display">
             <div className="drum-pad" id="1" onClick={this.play(this.q)}>
-              <audio
-                className="clip" 
-                id="Q" 
-                ref={this.q}
-                src={sound} 
-                type="audio/mp3"
-              >
-              </audio>Q
+              <audio className="clip" id="Q" ref={this.q} src={sound}/>Q
             </div>
             <button className="drum-pad" id="W">W</button>
             <button className="drum-pad" id="E">E</button>
