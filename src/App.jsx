@@ -15,6 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.play = this.play.bind(this);
+    this.onKeyPressed = this.onKeyPressed.bind(this);
+    this.app = React.createRef();
     this.q = React.createRef();
     this.w = React.createRef();
     this.e = React.createRef();
@@ -32,15 +34,31 @@ class App extends Component {
     script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
     script.async = true;
     document.body.appendChild(script);
+    this.focusDiv();
   }
   
   play = (ref) => (e) => {
     ref.current.play();
   }
 
+  onKeyPressed(e) {
+    console.log('e.keyCode ', e.keyCode );
+    if(e.keyCode === 81){
+      this.q.current.play();
+    }
+  }
+
+  focusDiv() {
+    this.app.current.focus();
+  }
+
   render() {
     return (
-      <div id="app">
+      <div id="app"
+        onKeyDown={this.onKeyPressed}
+        tabIndex="0"
+        ref={this.app}
+      >
         <div id="drum-machine">
           <div id="display">
             <div className="drum-pad" id="1" onClick={this.play(this.q)}>
