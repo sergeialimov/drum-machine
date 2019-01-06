@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.play = this.play.bind(this);
-    this.myRef = React.createRef();
+    this.q = React.createRef();
   }
   
   // autotests for FreeCodeCamp
@@ -18,8 +18,8 @@ class App extends Component {
     document.body.appendChild(script);
   }
   
-  play(id) {
-    this.myRef.current.play();
+  play = (ref) => (e) => {
+    ref.current.play();
   }
 
   render() {
@@ -27,11 +27,11 @@ class App extends Component {
       <div id="app">
         <div id="drum-machine">
           <div id="display">
-            <div className="drum-pad" id="1" onClick={this.play}>
+            <div className="drum-pad" id="1" onClick={this.play(this.q)}>
               <audio
                 className="clip" 
                 id="Q" 
-                ref={this.myRef}
+                ref={this.q}
                 src={sound} 
                 type="audio/mp3"
               >
