@@ -43,8 +43,37 @@ class App extends Component {
 
   onKeyPressed(e) {
     console.log('e.keyCode ', e.keyCode );
-    if(e.keyCode === 81){
-      this.q.current.play();
+    switch (e.keyCode) {
+      case 81:
+        this.q.current.play();
+        break;
+      case 87:
+        this.w.current.play();
+        break;
+      case 69:
+        this.e.current.play();
+        break;
+      case 65:
+        this.a.current.play();
+        break;
+      case 87:
+        this.s.current.play();
+        break;
+      case 83:
+        this.d.current.play();
+        break;
+      case 68:
+        this.z.current.play();
+        break;
+      case 90:
+        this.x.current.play();
+        break;
+      case 88:
+        this.c.current.play();
+        break;
+      case 67:
+        this.c.current.play();
+        break;
     }
   }
 
