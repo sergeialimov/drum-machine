@@ -42,36 +42,41 @@ class App extends Component {
   }
 
   onKeyPressed(e) {
-    console.log('e.keyCode ', e.keyCode );
     switch (e.keyCode) {
       case 81:
+        this.q.current.currentTime = 0;
         this.q.current.play();
         break;
       case 87:
+        this.w.current.currentTime = 0;
         this.w.current.play();
         break;
       case 69:
+        this.e.current.currentTime = 0;
         this.e.current.play();
         break;
       case 65:
+        this.a.current.currentTime = 0;
         this.a.current.play();
         break;
-      case 87:
+      case 83:
+        this.s.current.currentTime = 0;
         this.s.current.play();
         break;
-      case 83:
+      case 68:
+        this.d.current.currentTime = 0;
         this.d.current.play();
         break;
-      case 68:
+      case 90:
+        this.z.current.currentTime = 0;
         this.z.current.play();
         break;
-      case 90:
+      case 88:
+        this.x.current.currentTime = 0;
         this.x.current.play();
         break;
-      case 88:
-        this.c.current.play();
-        break;
       case 67:
+        this.c.current.currentTime = 0;
         this.c.current.play();
         break;
     }
