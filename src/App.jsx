@@ -14,6 +14,9 @@ import sound9 from './sounds/piano/09.mp3'
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: 'test'
+    }
     this.play = this.play.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.app = React.createRef();
@@ -131,7 +134,7 @@ class App extends Component {
               <p>Power</p>
             </div>
             <div id="nameBox">
-              <p id="name">Chord 3</p>
+              <p id="name">{this.state.name}</p>
             </div>
             <div id="volume">
             </div>
