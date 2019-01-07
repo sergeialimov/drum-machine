@@ -40,7 +40,8 @@ class App extends Component {
     this.focusDiv();
   }
   
-  play = (ref) => (e) => {
+  play = (ref, soundName) => (e) => {
+    this.setState({ name: soundName })
     ref.current.play();
   }
 
@@ -98,31 +99,31 @@ class App extends Component {
       >
         <div id="drum-machine">
           <div id="display">
-            <div className="drum-pad" id="1" onClick={this.play(this.q)}>
+            <div className="drum-pad" id="1" onClick={this.play(this.q, 'sound1')}>
               <audio className="clip" id="Q" ref={this.q} src={sound1}/>Q
             </div>
-            <div className="drum-pad" id="2" onClick={this.play(this.w)}>
+            <div className="drum-pad" id="2" onClick={this.play(this.w, 'sound2')}>
               <audio className="clip" id="W" ref={this.w} src={sound2}/>W
             </div>
-            <div className="drum-pad" id="3" onClick={this.play(this.e)}>
+            <div className="drum-pad" id="3" onClick={this.play(this.e, 'sound3')}>
               <audio className="clip" id="E" ref={this.e} src={sound3}/>E
             </div>
-            <div className="drum-pad" id="4" onClick={this.play(this.a)}>
+            <div className="drum-pad" id="4" onClick={this.play(this.a, 'sound4')}>
               <audio className="clip" id="A" ref={this.a} src={sound4}/>A
             </div>
-            <div className="drum-pad" id="5" onClick={this.play(this.s)}>
+            <div className="drum-pad" id="5" onClick={this.play(this.s, 'sound5')}>
               <audio className="clip" id="S" ref={this.s} src={sound5}/>S
             </div>
-            <div className="drum-pad" id="6" onClick={this.play(this.d)}>
+            <div className="drum-pad" id="6" onClick={this.play(this.d, 'sound6')}>
               <audio className="clip" id="D" ref={this.d} src={sound6}/>D
             </div>
-            <div className="drum-pad" id="7" onClick={this.play(this.z)}>
+            <div className="drum-pad" id="7" onClick={this.play(this.z, 'sound7')}>
               <audio className="clip" id="Z" ref={this.z} src={sound7}/>Z
             </div>
-            <div className="drum-pad" id="8" onClick={this.play(this.x)}>
+            <div className="drum-pad" id="8" onClick={this.play(this.x, 'sound8')}>
               <audio className="clip" id="X" ref={this.x} src={sound8}/>X
             </div>
-            <div className="drum-pad" id="9" onClick={this.play(this.c)}>
+            <div className="drum-pad" id="9" onClick={this.play(this.c, 'sound9')}>
               <audio className="clip" id="C" ref={this.c} src={sound9}/>C
             </div>
           </div>
