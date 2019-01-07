@@ -74,47 +74,39 @@ class App extends Component {
   }
   
   play = (id, soundName) => (e) => {
-    this.setState({ name: soundName })
+    this.setState({ name: soundName });
+    this[id].current.currentTime = 0;
     this[id].current.play();
   }
 
   onKeyPressed(e) {
     switch (e.keyCode) {
       case 81:
-        this.Q.current.currentTime = 0;
-        this.Q.current.play();
+        this.play('Q', sounds.piano[0].name)();
         break;
       case 87:
-        this.W.current.currentTime = 0;
-        this.W.current.play();
+        this.play('W', sounds.piano[1].name)();
         break;
       case 69:
-        this.E.current.currentTime = 0;
-        this.E.current.play();
+        this.play('E', sounds.piano[2].name)();
         break;
       case 65:
-        this.A.current.currentTime = 0;
-        this.A.current.play();
+        this.play('A', sounds.piano[3].name)();
         break;
       case 83:
-        this.S.current.currentTime = 0;
-        this.S.current.play();
+        this.play('S', sounds.piano[4].name)();
         break;
       case 68:
-        this.D.current.currentTime = 0;
-        this.D.current.play();
+        this.play('D', sounds.piano[5].name)();
         break;
       case 90:
-        this.Z.current.currentTime = 0;
-        this.Z.current.play();
+        this.play('Z', sounds.piano[6].name)();
         break;
       case 88:
-        this.X.current.currentTime = 0;
-        this.X.current.play();
+        this.play('X', sounds.piano[7].name)();
         break;
       case 67:
-        this.C.current.currentTime = 0;
-        this.C.current.play();
+        this.play('C', sounds.piano[8].name)();
         break;
       default:
         break;
