@@ -60,6 +60,12 @@
 #toggler {
 }
 
+#volume {
+  height: 25px;
+  width: 150px;
+  background-color: #D6D3CD;
+}
+
 #nameBox {
   height: 40px;
   width: 150px;
@@ -67,12 +73,8 @@
   display: flex;
 }
 
-#volume {
-  height: 25px;
-  width: 150px;
-  background-color: #D6D3CD;
-}
-
 #name {
+  margin: 0 auto 0 auto;
+  align-self: center;
 }
 
