@@ -17,7 +17,7 @@
   grid-template-columns: 60% 40%;
 }
 
-#display {
+#keyboard {
   width: 50%;
   height: 85%;
   align-self: center;
@@ -73,7 +73,7 @@
   display: flex;
 }
 
-#name {
+#display {
   margin: 0 auto 0 auto;
   align-self: center;
 }

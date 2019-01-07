@@ -115,13 +115,9 @@ class App extends Component {
 
   render() {
     return (
-      <div id="app"
-        onKeyDown={this.onKeyPressed}
-        tabIndex="0"
-        ref={this.app}
-      >
+      <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
-          <div id="display">
+          <div id="keyboard">
             <div className="drum-pad" id="0" onClick={this.play('Q', sounds.piano[0].name)}>
               <audio className="clip" id="Q" ref={this.Q} src={sounds.piano[0].path}/>Q
             </div>
@@ -158,7 +154,7 @@ class App extends Component {
               <p>Power</p>
             </div>
             <div id="nameBox">
-              <p id="name">{this.state.name}</p>
+              <p id="display">{this.state.name}</p>
             </div>
             <div id="volume">
             </div>
