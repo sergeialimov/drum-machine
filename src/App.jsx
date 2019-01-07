@@ -78,13 +78,14 @@ const sounds = {
       name: 'guitar 9',
       path: '/sounds/guitar/09.mp3',
     },
+  ]
 };
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: 'piano',
+      mode: 'guitar',
       name: '',
     }
     this.play = this.play.bind(this);
@@ -119,31 +120,31 @@ class App extends Component {
   onKeyPressed(e) {
     switch (e.keyCode) {
       case 81:
-        this.play('Q', sounds.piano[0].name)();
+        this.play('Q', sounds[this.state.mode][0].name)();
         break;
       case 87:
-        this.play('W', sounds.piano[1].name)();
+        this.play('W', sounds[this.state.mode][1].name)();
         break;
       case 69:
-        this.play('E', sounds.piano[2].name)();
+        this.play('E', sounds[this.state.mode][2].name)();
         break;
       case 65:
-        this.play('A', sounds.piano[3].name)();
+        this.play('A', sounds[this.state.mode][3].name)();
         break;
       case 83:
-        this.play('S', sounds.piano[4].name)();
+        this.play('S', sounds[this.state.mode][4].name)();
         break;
       case 68:
-        this.play('D', sounds.piano[5].name)();
+        this.play('D', sounds[this.state.mode][5].name)();
         break;
       case 90:
-        this.play('Z', sounds.piano[6].name)();
+        this.play('Z', sounds[this.state.mode][6].name)();
         break;
       case 88:
-        this.play('X', sounds.piano[7].name)();
+        this.play('X', sounds[this.state.mode][7].name)();
         break;
       case 67:
-        this.play('C', sounds.piano[8].name)();
+        this.play('C', sounds[this.state.mode][8].name)();
         break;
       default:
         break;
