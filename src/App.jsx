@@ -1,15 +1,47 @@
 import React, { Component } from 'react';
 import logo from './img/headphones.png';
 import './App.css';
-import pianoSoundQ from './sounds/piano/01.mp3';
-import soundW from './sounds/piano/02.mp3';
-import soundE from './sounds/piano/03.mp3';
-import soundA from './sounds/piano/04.mp3';
-import soundS from './sounds/piano/05.mp3';
-import soundD from './sounds/piano/06.mp3';
-import soundZ from './sounds/piano/07.mp3';
-import soundX from './sounds/piano/08.mp3';
-import soundC from './sounds/piano/09.mp3';
+
+const sounds = {
+  piano: [
+    {
+      name: 'sound 1',
+      path: '/sounds/piano/01.mp3',
+    },
+    {
+      name: 'sound 2',
+      path: '/sounds/piano/02.mp3',
+    },
+    {
+      name: 'sound 3',
+      path: '/sounds/piano/03.mp3',
+    },
+    {
+      name: 'sound 4',
+      path: '/sounds/piano/04.mp3',
+    },
+    {
+      name: 'sound 5',
+      path: '/sounds/piano/05.mp3',
+    },
+    {
+      name: 'sound 6',
+      path: '/sounds/piano/06.mp3',
+    },
+    {
+      name: 'sound 7',
+      path: '/sounds/piano/07.mp3',
+    },
+    {
+      name: 'sound 8',
+      path: '/sounds/piano/08.mp3',
+    },
+    {
+      name: 'sound 9',
+      path: '/sounds/piano/09.mp3',
+    },
+  ]
+};
 
 class App extends Component {
   constructor(props) {
@@ -41,9 +73,9 @@ class App extends Component {
     this.focusDiv();
   }
   
-  play = (id) => (e) => {
+  play = (id, soundName) => (e) => {
     console.log("id", id);
-    this.setState({ name: `${this.state.mode}Sound${id}` })
+    this.setState({ name: soundName })
     this[id].current.play();
   }
 
@@ -101,32 +133,32 @@ class App extends Component {
       >
         <div id="drum-machine">
           <div id="display">
-            <div className="drum-pad" id="1" onClick={this.play('Q')}>
-              <audio className="clip" id="Q" ref={this.Q} src='/sounds/piano/01.mp3'/>Q
+            <div className="drum-pad" id="0" onClick={this.play('Q', sounds.piano[0].name)}>
+              <audio className="clip" id="Q" ref={this.Q} src={sounds.piano[0].path}/>Q
             </div>
-            <div className="drum-pad" id="2" onClick={this.play('W')}>
-              <audio className="clip" id="W" ref={this.W} src={soundW}/>W
+            <div className="drum-pad" id="1" onClick={this.play('W', sounds.piano[1].name)}>
+              <audio className="clip" id="W" ref={this.W} src={sounds.piano[1].path}/>W
             </div>
-            <div className="drum-pad" id="3" onClick={this.play('E')}>
-              <audio className="clip" id="E" ref={this.E} src={soundE}/>E
+            <div className="drum-pad" id="2" onClick={this.play('E', sounds.piano[2].name)}>
+              <audio className="clip" id="E" ref={this.E} src={sounds.piano[2].path}/>E
             </div>
-            <div className="drum-pad" id="4" onClick={this.play('A')}>
-              <audio className="clip" id="A" ref={this.A} src={soundA}/>A
+            <div className="drum-pad" id="3" onClick={this.play('A', sounds.piano[3].name)}>
+              <audio className="clip" id="A" ref={this.A} src={sounds.piano[3].path}/>A
             </div>
-            <div className="drum-pad" id="5" onClick={this.play('S')}>
-              <audio className="clip" id="S" ref={this.S} src={soundS}/>S
+            <div className="drum-pad" id="4" onClick={this.play('S', sounds.piano[4].name)}>
+              <audio className="clip" id="S" ref={this.S} src={sounds.piano[4].path}/>S
             </div>
-            <div className="drum-pad" id="6" onClick={this.play('D')}>
-              <audio className="clip" id="D" ref={this.D} src={soundD}/>D
+            <div className="drum-pad" id="5" onClick={this.play('D', sounds.piano[5].name)}>
+              <audio className="clip" id="D" ref={this.D} src={sounds.piano[5].path}/>D
             </div>
-            <div className="drum-pad" id="7" onClick={this.play('Z')}>
-              <audio className="clip" id="Z" ref={this.Z} src={soundZ}/>Z
+            <div className="drum-pad" id="6" onClick={this.play('Z', sounds.piano[6].name)}>
+              <audio className="clip" id="Z" ref={this.Z} src={sounds.piano[6].path}/>Z
             </div>
-            <div className="drum-pad" id="8" onClick={this.play('X')}>
-              <audio className="clip" id="X" ref={this.X} src={soundX}/>X
+            <div className="drum-pad" id="7" onClick={this.play('X', sounds.piano[7].name)}>
+              <audio className="clip" id="X" ref={this.X} src={sounds.piano[7].path}/>X
             </div>
-            <div className="drum-pad" id="9" onClick={this.play('C')}>
-              <audio className="clip" id="C" ref={this.C} src={soundC}/>C
+            <div className="drum-pad" id="8" onClick={this.play('C', sounds.piano[8].name)}>
+              <audio className="clip" id="C" ref={this.C} src={sounds.piano[8].path}/>C
             </div>
           </div>
           <div id="rightPane">
