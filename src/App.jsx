@@ -35,8 +35,8 @@ class App extends Component {
   // autotests for FreeCodeCamp
   componentDidMount () {
     const script = document.createElement("script");
-    script.Src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
-    script.Async = true;
+    script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+    script.async = true;
     document.body.appendChild(script);
     this.focusDiv();
   }
