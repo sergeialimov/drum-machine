@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import logo from './img/headphones.png';
 import './App.css';
-import soundQ from './sounds/piano/01.mp3'
-import soundW from './sounds/piano/02.mp3'
-import soundE from './sounds/piano/03.mp3'
-import soundA from './sounds/piano/04.mp3'
-import soundS from './sounds/piano/05.mp3'
-import soundD from './sounds/piano/06.mp3'
-import soundZ from './sounds/piano/07.mp3'
-import soundX from './sounds/piano/08.mp3'
-import soundC from './sounds/piano/09.mp3'
+import pianoSoundQ from './sounds/piano/01.mp3';
+import soundW from './sounds/piano/02.mp3';
+import soundE from './sounds/piano/03.mp3';
+import soundA from './sounds/piano/04.mp3';
+import soundS from './sounds/piano/05.mp3';
+import soundD from './sounds/piano/06.mp3';
+import soundZ from './sounds/piano/07.mp3';
+import soundX from './sounds/piano/08.mp3';
+import soundC from './sounds/piano/09.mp3';
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
   
   play = (id) => (e) => {
     console.log("id", id);
-    this.setState({ name: `sound${id}` })
+    this.setState({ name: `${this.state.mode}Sound${id}` })
     this[id].current.play();
   }
 
@@ -102,7 +102,7 @@ class App extends Component {
         <div id="drum-machine">
           <div id="display">
             <div className="drum-pad" id="1" onClick={this.play('Q')}>
-              <audio className="clip" id="Q" ref={this.Q} src={soundQ}/>Q
+              <audio className="clip" id="Q" ref={this.Q} src='/sounds/piano/01.mp3'/>Q
             </div>
             <div className="drum-pad" id="2" onClick={this.play('W')}>
               <audio className="clip" id="W" ref={this.W} src={soundW}/>W
