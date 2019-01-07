@@ -116,6 +116,8 @@ class App extends Component {
         this.C.current.currentTime = 0;
         this.C.current.play();
         break;
+      default:
+        break;
     }
   }
 
