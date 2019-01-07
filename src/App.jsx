@@ -70,11 +70,10 @@ class App extends Component {
     script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
     script.async = true;
     document.body.appendChild(script);
-    this.focusDiv();
+    this.app.current.focus();
   }
   
   play = (id, soundName) => (e) => {
-    console.log("id", id);
     this.setState({ name: soundName })
     this[id].current.play();
   }
@@ -118,10 +117,6 @@ class App extends Component {
         this.C.current.play();
         break;
     }
-  }
-
-  focusDiv() {
-    this.app.current.focus();
   }
 
   render() {
