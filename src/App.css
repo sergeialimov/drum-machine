@@ -43,7 +43,7 @@
 
 #rightPane {
   display: grid;
-  grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr;
+  grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
   justify-items: center;
   background-color: gray;
   font-weight: 600;
@@ -58,6 +58,12 @@
 }
 
 #toggler {
+}
+
+#modeToggle {
+  height: 50px;
+  width: 150px;
+  background-color: #D6D3CD;
 }
 
 #volume {

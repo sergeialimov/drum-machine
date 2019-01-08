@@ -18,6 +18,7 @@ class App extends Component {
     this.handleCheck = this.handleCheck.bind(this);
     this.setVolume = this.setVolume.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
+    this.switchMode = this.switchMode.bind(this);
     this.app = React.createRef();
     this.Q = React.createRef();
     this.W = React.createRef();
@@ -54,7 +55,7 @@ class App extends Component {
     })
   }
 
-  handleCheck (e){
+  handleCheck (e) {
     this.setState({
       checked: e.target.checked,
     })
@@ -63,6 +64,13 @@ class App extends Component {
   setVolume = (e) => {
     this.setState({
       volume: e.target.value / 100,
+    })
+  }
+
+  switchMode () {
+    console.log('111');
+    this.setState({
+      mode: (this.state.mode === 'guitar') ? 'piano' : 'guitar',
     })
   }
 
@@ -160,9 +168,7 @@ class App extends Component {
                 onChange={this.setVolume}>
               </input>
             </div>
-            <div id="bank">
-              <p>Bank</p>
-            </div>
+            <button id="modeToggle" onClick={this.switchMode}>{this.state.mode}</button>
           </div>
         </div>
       </div>
