@@ -11,10 +11,12 @@ class App extends Component {
       mode: 'guitar',
       name: '',
       checked: true,
+      volume: 0.5,
     }
     this.play = this.play.bind(this);
     this.power = this.power.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.setVolume = this.setVolume.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.app = React.createRef();
     this.Q = React.createRef();
@@ -41,6 +43,7 @@ class App extends Component {
     if (this.state.power) {
       this.setState({ name: soundName });
       this[id].current.currentTime = 0;
+      this[id].current.volume = this.state.volume;
       this[id].current.play();
     }
   }
@@ -51,9 +54,15 @@ class App extends Component {
     })
   }
 
-  handleCheck(e){
-   this.setState({
-    checked: e.target.checked
+  handleCheck (e){
+    this.setState({
+      checked: e.target.checked,
+    })
+  }
+
+  setVolume = (e) => {
+    this.setState({
+      volume: e.target.value / 100,
     })
   }
 
@@ -128,18 +137,28 @@ class App extends Component {
             <div id="logo">
               <img id="logo" src={logo} alt="logo"/>
             </div>
-            <label class="switch">
+            <p>Power</p>
+            <label className="switch">
               <input
                 type="checkbox"
                 onClick={this.power}
                 onChange={this.handleCheck}
                 checked={this.state.checked}/>
-              <span class="slider"></span>
+              <span className="slider"></span>
             </label>
             <div id="nameBox">
               <p id="display">{this.state.name}</p>
             </div>
             <div id="volume">
+              <input
+                id="vol-control"
+                type="range"
+                min="0"
+                max="100"
+                step="1"
+                onInput={this.setVolume}
+                onChange={this.setVolume}>
+              </input>
             </div>
             <div id="bank">
               <p>Bank</p>
