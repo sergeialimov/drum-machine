@@ -7,10 +7,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      power: true,
       mode: 'guitar',
       name: '',
+      checked: true,
     }
     this.play = this.play.bind(this);
+    this.power = this.power.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.app = React.createRef();
     this.Q = React.createRef();
@@ -34,9 +38,23 @@ class App extends Component {
   }
   
   play = (id, soundName) => (e) => {
-    this.setState({ name: soundName });
-    this[id].current.currentTime = 0;
-    this[id].current.play();
+    if (this.state.power) {
+      this.setState({ name: soundName });
+      this[id].current.currentTime = 0;
+      this[id].current.play();
+    }
+  }
+
+  power () {
+    this.setState({
+      power: !this.state.power,
+    })
+  }
+
+  handleCheck(e){
+   this.setState({
+    checked: e.target.checked
+    })
   }
 
   onKeyPressed(e) {
@@ -110,9 +128,14 @@ class App extends Component {
             <div id="logo">
               <img id="logo" src={logo} alt="logo"/>
             </div>
-            <div id="toggler">
-              <p>Power</p>
-            </div>
+            <label class="switch">
+              <input
+                type="checkbox"
+                onClick={this.power}
+                onChange={this.handleCheck}
+                checked={this.state.checked}/>
+              <span class="slider"></span>
+            </label>
             <div id="nameBox">
               <p id="display">{this.state.name}</p>
             </div>
