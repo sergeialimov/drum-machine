@@ -41,6 +41,10 @@
   text-align: center;
 }
 
+.drum-pad.active {
+  background-color: orange;
+}
+
 #rightPane {
   display: grid;
   grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
