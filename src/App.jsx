@@ -17,7 +17,6 @@ class App extends Component {
       active: false,
     }
     this.play = this.play.bind(this);
-    this.play2 = this.play2.bind(this);
     this.power = this.power.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.setVolume = this.setVolume.bind(this);
@@ -68,7 +67,7 @@ class App extends Component {
     })
   }
 
-  play2 = (key) => (e) => {
+  play = (key) => (e) => {
     const index = keys.indexOf(key);
     let soundName = '';
     if (this.state.power && index > -1) {
@@ -88,27 +87,8 @@ class App extends Component {
     }  
   }
 
-  play = (id) => (e) => {
-    const soundName = sounds[this.state.mode][keys.indexOf(id)].name;
-    if (this.state.power) {
-      this.setState({
-        name: soundName,
-        active: true,
-      });
-      this[id].current.currentTime = 0;
-      this[id].current.volume = this.state.volume;
-      this[id].current.play();
-
-      setTimeout(function(){
-        this.setState({
-          active: false,
-        });
-      }.bind(this), 1200);
-    }
-  }
-
   onKeyPressed(e) {
-    this.play2(e.key)();
+    this.play(e.key)();
   }
 
   toggleClass() {
@@ -122,7 +102,7 @@ class App extends Component {
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="keyboard">
-            <div className={activeBtn} id="0" onClick={this.play2('q')}>
+            <div className={activeBtn} id="0" onClick={this.play('q')}>
               <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
             <div className="drum-pad" id="1" onClick={this.play('w', sounds[this.state.mode][1].name)}>
