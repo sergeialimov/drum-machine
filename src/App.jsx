@@ -84,7 +84,7 @@ class App extends Component {
         this.setState({
           active: false,
         });
-      }.bind(this), 1200);
+      }.bind(this), 100);
     }  
   }
 
@@ -125,7 +125,7 @@ class App extends Component {
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="keyboard">
-            <div className="drum-pad" id="0" onClick={this.play2('q')}>
+            <div className={activeBtn} id="0" onClick={this.play2('q')}>
               <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
             <div className="drum-pad" id="1" onClick={this.play('W', sounds[this.state.mode][1].name)}>
