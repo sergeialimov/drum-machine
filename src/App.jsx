@@ -3,24 +3,28 @@ import logo from './img/headphones.png';
 import './App.css';
 import sounds from './soundInfo.js';
 
+const keys = ['q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'];
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       power: true,
-      mode: 'guitar',
+      mode: 'piano',
       name: '',
       checked: true,
-      volume: 0.5,
+      volume: 0.2,
+      active: false,
     }
     this.play = this.play.bind(this);
+    this.play2 = this.play2.bind(this);
     this.power = this.power.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.setVolume = this.setVolume.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.switchMode = this.switchMode.bind(this);
     this.app = React.createRef();
-    this.Q = React.createRef();
+    this.q = React.createRef();
     this.W = React.createRef();
     this.E = React.createRef();
     this.A = React.createRef();
@@ -32,7 +36,7 @@ class App extends Component {
   }
   
   // autotests for FreeCodeCamp
-  componentDidMount () {
+  componentDidMount() {
     const script = document.createElement("script");
     script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
     script.async = true;
@@ -40,23 +44,13 @@ class App extends Component {
     this.app.current.focus();
   }
   
-  play = (id, soundName) => (e) => {
-    console.log('soundName', soundName);
-    if (this.state.power) {
-      this.setState({ name: soundName });
-      this[id].current.currentTime = 0;
-      this[id].current.volume = this.state.volume;
-      this[id].current.play();
-    }
-  }
-
-  power () {
+  power() {
     this.setState({
       power: !this.state.power,
     })
   }
 
-  handleCheck (e) {
+  handleCheck(e) {
     this.setState({
       checked: e.target.checked,
     })
@@ -68,54 +62,71 @@ class App extends Component {
     })
   }
 
-  switchMode () {
-    console.log('111');
+  switchMode() {
     this.setState({
       mode: (this.state.mode === 'guitar') ? 'piano' : 'guitar',
     })
   }
 
-  onKeyPressed(e) {
-    switch (e.keyCode) {
-      case 81:
-        this.play('Q', sounds[this.state.mode][0].name)();
-        break;
-      case 87:
-        this.play('W', sounds[this.state.mode][1].name)();
-        break;
-      case 69:
-        this.play('E', sounds[this.state.mode][2].name)();
-        break;
-      case 65:
-        this.play('A', sounds[this.state.mode][3].name)();
-        break;
-      case 83:
-        this.play('S', sounds[this.state.mode][4].name)();
-        break;
-      case 68:
-        this.play('D', sounds[this.state.mode][5].name)();
-        break;
-      case 90:
-        this.play('Z', sounds[this.state.mode][6].name)();
-        break;
-      case 88:
-        this.play('X', sounds[this.state.mode][7].name)();
-        break;
-      case 67:
-        this.play('C', sounds[this.state.mode][8].name)();
-        break;
-      default:
-        break;
+  play2 = (key) => (e) => {
+    const index = keys.indexOf(key);
+    let soundName = '';
+    if (this.state.power && index > -1) {
+      soundName = sounds[this.state.mode][index].name;
+      this.setState({
+        name: soundName,
+        active: true,
+      });
+      this[key].current.currentTime = 0;
+      this[key].current.volume = this.state.volume;
+      this[key].current.play();
+      setTimeout(function(){
+        this.setState({
+          active: false,
+        });
+      }.bind(this), 1200);
+    }  
+  }
+
+  play = (id) => (e) => {
+    const soundName = sounds[this.state.mode][keys.indexOf(id)].name;
+    if (this.state.power) {
+      this.setState({
+        name: soundName,
+        active: true,
+      });
+      this[id].current.currentTime = 0;
+      this[id].current.volume = this.state.volume;
+      this[id].current.play();
+
+      setTimeout(function(){
+        this.setState({
+          active: false,
+        });
+      }.bind(this), 1200);
     }
   }
 
+  onKeyPressed(e) {
+    console.log('e', e);
+    console.log('e.key', e.key);
+    this.play2(e.key)();
+  }
+
+  toggleClass() {
+    const currentState = this.state.active;
+    this.setState({ active: !currentState });
+  };
+
   render() {
+    const activeBtn = (this.state.active) ? 'drum-pad active' : 'drum-pad';
+    // console.log('activeBtn', activeBtn);
     return (
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="keyboard">
-            <div className="drum-pad" id="0" onClick={this.play('Q', sounds[this.state.mode][0].name)}>
-              <audio className="clip" id="Q" ref={this.Q} src={sounds[this.state.mode][0].path}/>Q
+            <div className="drum-pad" id="0" onClick={this.play2('q')}>
+              <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
             <div className="drum-pad" id="1" onClick={this.play('W', sounds[this.state.mode][1].name)}>
               <audio className="clip" id="W" ref={this.W} src={sounds[this.state.mode][1].path}/>W
