@@ -130,28 +130,28 @@ class App extends Component {
             <div className={this.getClassName('q')} id="0" onClick={this.play('q')}>
               <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
-            <div className="drum-pad" id="1" onClick={this.play('w', sounds[this.state.mode][1].name)}>
+            <div className="drum-pad" id="1" onClick={this.play('w')}>
               <audio className="clip" id="w" ref={this.w} src={sounds[this.state.mode][1].path}/>W
             </div>
-            <div className="drum-pad" id="2" onClick={this.play('e', sounds[this.state.mode][2].name)}>
+            <div className="drum-pad" id="2" onClick={this.play('e')}>
               <audio className="clip" id="e" ref={this.e} src={sounds[this.state.mode][2].path}/>E
             </div>
-            <div className="drum-pad" id="3" onClick={this.play('a', sounds[this.state.mode][3].name)}>
+            <div className="drum-pad" id="3" onClick={this.play('a')}>
               <audio className="clip" id="a" ref={this.a} src={sounds[this.state.mode][3].path}/>A
             </div>
-            <div className="drum-pad" id="4" onClick={this.play('s', sounds[this.state.mode][4].name)}>
+            <div className="drum-pad" id="4" onClick={this.play('s')}>
               <audio className="clip" id="s" ref={this.s} src={sounds[this.state.mode][4].path}/>S
             </div>
-            <div className="drum-pad" id="5" onClick={this.play('d', sounds[this.state.mode][5].name)}>
+            <div className="drum-pad" id="5" onClick={this.play('d')}>
               <audio className="clip" id="d" ref={this.d} src={sounds[this.state.mode][5].path}/>D
             </div>
-            <div className="drum-pad" id="6" onClick={this.play('z', sounds[this.state.mode][6].name)}>
+            <div className="drum-pad" id="6" onClick={this.play('z')}>
               <audio className="clip" id="z" ref={this.z} src={sounds[this.state.mode][6].path}/>Z
             </div>
-            <div className="drum-pad" id="7" onClick={this.play('x', sounds[this.state.mode][7].name)}>
+            <div className="drum-pad" id="7" onClick={this.play('x')}>
               <audio className="clip" id="x" ref={this.x} src={sounds[this.state.mode][7].path}/>X
             </div>
-            <div className="drum-pad" id="8" onClick={this.play('c', sounds[this.state.mode][8].name)}>
+            <div className="drum-pad" id="8" onClick={this.play('c')}>
               <audio className="clip" id="c" ref={this.c} src={sounds[this.state.mode][8].path}/>C
             </div>
           </div>
