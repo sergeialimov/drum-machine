@@ -14,7 +14,17 @@ class App extends Component {
       name: '',
       checked: true,
       volume: 0.2,
-      active: false,
+      active: {
+        q: false,
+        w: false,
+        e: false,
+        a: false,
+        s: false,
+        d: false,
+        z: false,
+        x: false,
+        c: false,
+      },
     }
     this.play = this.play.bind(this);
     this.power = this.power.bind(this);
@@ -22,6 +32,7 @@ class App extends Component {
     this.setVolume = this.setVolume.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.switchMode = this.switchMode.bind(this);
+    this.isActive = this.isActive.bind(this);
     this.app = React.createRef();
     this.q = React.createRef();
     this.w = React.createRef();
@@ -74,16 +85,10 @@ class App extends Component {
       soundName = sounds[this.state.mode][index].name;
       this.setState({
         name: soundName,
-        active: true,
       });
       this[key].current.currentTime = 0;
       this[key].current.volume = this.state.volume;
       this[key].current.play();
-      setTimeout(function(){
-        this.setState({
-          active: false,
-        });
-      }.bind(this), 100);
     }  
   }
 
@@ -91,18 +96,28 @@ class App extends Component {
     this.play(e.key)();
   }
 
+  // setTimeout(function(){
+  //   this.setState({
+  //     active: false,
+  //   });
+  // }.bind(this), 100);
+
   toggleClass() {
     const currentState = this.state.active;
     this.setState({ active: !currentState });
   };
 
+  isActive = (id) => {
+    console.log('id', id);
+    return this.state.active[id] ? 'drum-pad active' : 'drum-pad';
+  }
+
   render() {
-    const activeBtn = (this.state.active) ? 'drum-pad active' : 'drum-pad';
     return (
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="keyboard">
-            <div className={activeBtn} id="0" onClick={this.play('q')}>
+            <div className={this.isActive('q')} id="0" onClick={this.play('q')}>
               <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
             <div className="drum-pad" id="1" onClick={this.play('w', sounds[this.state.mode][1].name)}>
