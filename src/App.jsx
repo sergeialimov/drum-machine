@@ -108,11 +108,6 @@ class App extends Component {
     this.play(e.key)();
   }
 
-  toggleClass() {
-    const currentState = this.state.active;
-    this.setState({ active: !currentState });
-  };
-
   getClassName = (id) => this.state.active[id] ? 'drum-pad active' : 'drum-pad';
 
   getPath = (index) => sounds[this.state.mode][index].path
