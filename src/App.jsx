@@ -15,7 +15,7 @@ class App extends Component {
       checked: true,
       volume: 0.2,
       active: {
-        q: false,
+        q: true,
         w: false,
         e: false,
         a: false,
@@ -32,7 +32,7 @@ class App extends Component {
     this.setVolume = this.setVolume.bind(this);
     this.onKeyPressed = this.onKeyPressed.bind(this);
     this.switchMode = this.switchMode.bind(this);
-    this.isActive = this.isActive.bind(this);
+    this.getClassName = this.getClassName.bind(this);
     this.app = React.createRef();
     this.q = React.createRef();
     this.w = React.createRef();
@@ -79,16 +79,30 @@ class App extends Component {
   }
 
   play = (key) => (e) => {
+    console.log('-- 1', this.state.active);
+    // включение активности
     const index = keys.indexOf(key);
     let soundName = '';
     if (this.state.power && index > -1) {
       soundName = sounds[this.state.mode][index].name;
       this.setState({
         name: soundName,
+        active: {
+          [key]: true,
+        }
       });
+      console.log('-- 1', this.state.activity);
       this[key].current.currentTime = 0;
       this[key].current.volume = this.state.volume;
       this[key].current.play();
+      setTimeout(function(){
+        this.setState({
+          name: soundName,
+          active: {
+            [key]: false,
+          }
+        });
+      }.bind(this), 1000);
     }  
   }
 
@@ -96,19 +110,15 @@ class App extends Component {
     this.play(e.key)();
   }
 
-  // setTimeout(function(){
-  //   this.setState({
-  //     active: false,
-  //   });
-  // }.bind(this), 100);
 
   toggleClass() {
     const currentState = this.state.active;
     this.setState({ active: !currentState });
   };
 
-  isActive = (id) => {
-    console.log('id', id);
+  getClassName = (id) => {
+    console.log('id', this.state.active);
+    console.log(this.state.active[id] ? 'drum-pad active' : 'drum-pad');
     return this.state.active[id] ? 'drum-pad active' : 'drum-pad';
   }
 
@@ -117,7 +127,7 @@ class App extends Component {
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="keyboard">
-            <div className={this.isActive('q')} id="0" onClick={this.play('q')}>
+            <div className={this.getClassName('q')} id="0" onClick={this.play('q')}>
               <audio className="clip" id="q" ref={this.q} src={sounds[this.state.mode][0].path}/>Q
             </div>
             <div className="drum-pad" id="1" onClick={this.play('w', sounds[this.state.mode][1].name)}>
