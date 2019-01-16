@@ -79,8 +79,6 @@ class App extends Component {
   }
 
   play = (key) => (e) => {
-    console.log('-- 1', this.state.active);
-    // включение активности
     const index = keys.indexOf(key);
     let soundName = '';
     if (this.state.power && index > -1) {
@@ -91,7 +89,6 @@ class App extends Component {
           [key]: true,
         }
       });
-      console.log('-- 1', this.state.activity);
       this[key].current.currentTime = 0;
       this[key].current.volume = this.state.volume;
       this[key].current.play();
@@ -110,15 +107,12 @@ class App extends Component {
     this.play(e.key)();
   }
 
-
   toggleClass() {
     const currentState = this.state.active;
     this.setState({ active: !currentState });
   };
 
   getClassName = (id) => {
-    console.log('id', this.state.active);
-    console.log(this.state.active[id] ? 'drum-pad active' : 'drum-pad');
     return this.state.active[id] ? 'drum-pad active' : 'drum-pad';
   }
 
