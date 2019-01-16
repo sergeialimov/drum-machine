@@ -102,7 +102,7 @@ class App extends Component {
             [key]: false,
           }
         });
-      }.bind(this), 1000);
+      }.bind(this), 100);
     }  
   }
 
