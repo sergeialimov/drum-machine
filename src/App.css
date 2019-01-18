@@ -181,7 +181,8 @@ input:checked + .slider:before {
   #rightPane {
     grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr;
     grid-row-gap: 0px;
-    padding-top: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .logo {
