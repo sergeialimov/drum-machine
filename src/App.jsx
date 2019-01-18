@@ -149,15 +149,17 @@ class App extends Component {
             <div id="logo">
               <img id="logo" src={logo} alt="logo"/>
             </div>
-            <p>Power</p>
-            <label className="switch">
-              <input
-                type="checkbox"
-                onClick={this.power}
-                onChange={this.handleCheck}
-                checked={this.state.checked}/>
-              <span className="slider"></span>
-            </label>
+            <div id="power">
+              <p id="powerTitle">Power</p>
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  onClick={this.power}
+                  onChange={this.handleCheck}
+                  checked={this.state.checked}/>
+                <span className="slider"></span>
+              </label>
+            </div>
             <div id="nameBox">
               <p id="display">{this.state.name}</p>
             </div>
