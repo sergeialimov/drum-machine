@@ -145,3 +145,28 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+@media (max-width: 670px) {
+  #drum-machine {
+    grid-template-columns: 100%;
+    grid-template-rows: 7% 53% 40%;
+    width: 380px;
+    height: 600px;
+  }
+
+  #rightPane {
+    grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr;
+    grid-row-gap: 0px;
+    padding-top: 5px;
+  }
+
+  #logo {
+    display: none;
+  }
+
+  #drum-pad {
+    height: 35px;
+    line-height: 35px;
+    width: 35px;
+  }
+}
