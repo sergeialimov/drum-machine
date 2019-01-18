@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       power: true,
       mode: 'piano',
-      name: '',
+      name: 'song name',
       checked: true,
       volume: 0.2,
       active: {
