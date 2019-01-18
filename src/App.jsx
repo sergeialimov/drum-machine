@@ -117,7 +117,7 @@ class App extends Component {
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
           <div id="extra-logo">
-            <img id="logo" src={logo} alt="logo"/>
+            <img className="logo extra" src={logo} alt="logo"/>
           </div>
           <div id="keyboard">
             <div className={this.getClassName('q')} id="0" onClick={this.play('q')}>
@@ -149,8 +149,8 @@ class App extends Component {
             </div>
           </div>
           <div id="rightPane">
-            <div id="logo">
-              <img id="logo" src={logo} alt="logo"/>
+            <div id="firstLogo">
+              <img className="logo" src={logo} alt="logo"/>
             </div>
             <div id="power">
               <p id="powerTitle">Power</p>
