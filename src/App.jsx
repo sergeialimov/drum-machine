@@ -116,6 +116,9 @@ class App extends Component {
     return (
       <div id="app" onKeyDown={this.onKeyPressed} tabIndex="0" ref={this.app}>
         <div id="drum-machine">
+          <div id="extra-logo">
+            <img id="logo" src={logo} alt="logo"/>
+          </div>
           <div id="keyboard">
             <div className={this.getClassName('q')} id="0" onClick={this.play('q')}>
               <audio className="clip" id="q" ref={this.q} src={this.getPath(0)}/>Q
