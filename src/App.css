@@ -72,7 +72,6 @@
 
 .logo.extra {
   justify-self: end;
-  /* display: none; */
 }
 
 #toggler {
@@ -178,6 +177,10 @@ input:checked + .slider:before {
     grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr;
     grid-row-gap: 0px;
     padding-top: 5px;
+  }
+
+  #firstLogo {
+    display: none;
   }
 
   #extra-logo {
