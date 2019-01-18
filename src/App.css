@@ -47,11 +47,12 @@
 
 #rightPane {
   display: grid;
-  grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 1.5fr;
+  grid-template-rows: 1fr 1.5fr 1.5fr 1.5fr 1.5fr 0.5fr;
   justify-items: center;
   background-color: gray;
   font-weight: 600;
   align-items: center;
+  grid-row-gap: 15px;
 }
 
 #logo {
