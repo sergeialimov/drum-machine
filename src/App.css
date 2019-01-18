@@ -168,7 +168,7 @@ input:checked + .slider:before {
 @media (max-width: 970px) {
   #drum-machine {
     grid-template-columns: 100%;
-    grid-template-rows: 7% 53% 40%;
+    grid-template-rows: 5% 55% 40%;
     width: 380px;
     height: 600px;
   }
@@ -179,12 +179,20 @@ input:checked + .slider:before {
     padding-top: 5px;
   }
 
+  .logo {
+    width: 20px;
+    height: 20px;
+    /* margin-top: 5px;
+    margin-right: 10px;
+    justify-self: end; */
+  }
+
   #firstLogo {
     display: none;
   }
 
   #extra-logo {
-    display: flex;
+    display: grid;
   }
 
   #logo {
